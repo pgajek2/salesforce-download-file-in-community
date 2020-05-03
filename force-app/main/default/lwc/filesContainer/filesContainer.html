@@ -1,0 +1,21 @@
+<template>
+    <template if:true={documents}>
+        <template for:each={documents} for:item="document">
+            <div class="slds-box slds-m-vertical_x-small" key={document.Id}>
+
+                <h5 class="slds-m-around_xx-small">
+                    {document.id} - {document.name} - {document.description}
+                </h5>
+
+                <ol>
+                    <template for:each={document.files} for:item="file">
+                        <li class="slds-border_left slds-p-left_medium slds-m-around_xxx-small" key={file.id}>
+                            <a href="javascript:void(0);" data-id={file.id} onclick={handleDownloadFile}>{file.id}</a>  - {file.name} - {file.fileExtension}
+                        </li>                
+                    </template>
+                </ol>
+
+            </div>
+        </template>
+    </template>
+</template>
